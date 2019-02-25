@@ -215,7 +215,7 @@ const days = [
     theme: 'Unity',
     description:
       'To strive for and to maintain unity in the family, community, nation, and race.',
-    date: 'December 26'
+    date: 'December 26th'
   },
   {
     day: 2,
@@ -223,7 +223,7 @@ const days = [
     theme: 'Self-Determination',
     description:
       'To define and name ourselves, as well as to create and speak for ourselves.',
-    date: 'December 27'
+    date: 'December 27th'
   },
   {
     day: 3,
@@ -231,7 +231,7 @@ const days = [
     theme: 'Collective Work and Responsibility',
     description:
       "To build and maintain our community together and make our brothers' and sisters' problems our problems and to solve them together.",
-    date: 'December 28'
+    date: 'December 28th'
   },
   {
     day: 4,
@@ -239,7 +239,7 @@ const days = [
     theme: 'Cooperative Economics',
     description:
       'To build and maintain our own stores, shops, and other businesses and to profit from them together.',
-    date: 'December 29'
+    date: 'December 29th'
   },
   {
     day: 5,
@@ -247,7 +247,7 @@ const days = [
     theme: 'Purpose',
     description:
       'To make our collective vocation the building and developing of our community in order to restore our people to their traditional greatness.',
-    date: 'December 30'
+    date: 'December 30th'
   },
   {
     day: 6,
@@ -255,7 +255,7 @@ const days = [
     theme: 'Creativity',
     description:
       'To do always as much as we can, in the way we can, in order to leave our community more beautiful and beneficial than we inherited it.',
-    date: 'December 31'
+    date: 'December 31st'
   },
   {
     day: 7,
@@ -263,6 +263,6 @@ const days = [
     theme: 'Faith',
     description:
       'To believe with all our hearts in our people, our parents, our teachers, our leaders, and the righteousness and victory of our struggle.',
-    date: 'January 1'
+    date: 'January 1st'
   }
 ];
