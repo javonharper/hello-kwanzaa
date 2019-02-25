@@ -26,7 +26,7 @@ class HomeScreen extends React.Component {
           ListHeaderComponent={
             <View style={styles.homeScreenHeader}>
               <Text style={styles.screenTitle}>Nguzo Saba</Text>
-              <Text style={styles.screenSubTitle}>7 days of Kwanzaa</Text>
+              <Text style={styles.screenSubTitle}>7 principles for 7 days</Text>
             </View>
           }
           keyExtractor={item => item.name}
@@ -157,7 +157,7 @@ const styles = EStyleSheet.create({
     marginBottom: spacing.base
   },
   principleName: {
-    fontSize: fontSize.larger,
+    fontSize: fontSize.largest,
     color: color.white,
     fontWeight: '700',
     marginBottom: spacing.smaller
@@ -169,14 +169,15 @@ const styles = EStyleSheet.create({
   // Tag
   tag: {
     backgroundColor: color.grayDarker,
-    padding: spacing.smallest,
+    padding: spacing.smaller,
     marginRight: spacing.base,
     color: color.white,
-    borderRadius: 4
+    borderRadius: 6
   },
   tagText: {
     color: color.white,
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: fontSize.base
   },
   // Footer
   homeFooter: {
@@ -197,8 +198,14 @@ const MainNavigator = createStackNavigator({
   Details: { screen: DetailsScreen }
 });
 
-const App = createAppContainer(MainNavigator);
+const AppNavigator = createAppContainer(MainNavigator);
 
+const App = () => (
+  <View style={{ flex: 1 }}>
+    {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+    <AppNavigator />
+  </View>
+);
 export default App;
 
 const days = [
@@ -244,7 +251,7 @@ const days = [
   },
   {
     day: 6,
-    name: 'Kurmba',
+    name: 'Kuumba',
     theme: 'Creativity',
     description:
       'To do always as much as we can, in the way we can, in order to leave our community more beautiful and beneficial than we inherited it.',
