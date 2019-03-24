@@ -14,7 +14,7 @@ class DetailsScreen extends Component {
 
   handlePlayPronounciation = () => {
     const day = this.props.navigation.getParam('day');
-    console.log('Playing audio for ', day.name);
+    this.props.navigation.push('PronunciationModal', { day });
   };
 
   render() {
@@ -22,7 +22,7 @@ class DetailsScreen extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'blue',
+          backgroundColor: color.grayDarkest,
           alignItems: 'center',
           justifyContent: 'center'
         }}

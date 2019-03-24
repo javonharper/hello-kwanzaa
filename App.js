@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Button,
   FlatList,
   Platform,
   StatusBar,
@@ -15,6 +16,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import days from './src/days';
 import { spacing, fontSize, color } from './src/style';
 import DetailsScreen from './src/DetailsScreen';
+import PronunciationModal from './src/PronunciationModal';
 
 EStyleSheet.build({});
 
@@ -164,12 +166,23 @@ const styles = EStyleSheet.create({
   }
 });
 
-const MainNavigator = createStackNavigator({
+const MainStack = createStackNavigator({
   Home: { screen: HomeScreen },
   Details: { screen: DetailsScreen }
 });
 
-const AppNavigator = createAppContainer(MainNavigator);
+const RootStack = createStackNavigator(
+  {
+    Main: { screen: MainStack },
+    PronunciationModal: { screen: PronunciationModal }
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none'
+  }
+);
+
+const AppNavigator = createAppContainer(RootStack);
 
 const App = () => (
   <View style={{ flex: 1 }}>
