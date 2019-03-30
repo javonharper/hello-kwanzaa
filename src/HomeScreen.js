@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Linking, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -35,8 +35,21 @@ class HomeScreen extends Component {
           )}
           ListFooterComponent={
             <View style={styles.homeFooter}>
-              <Text style={styles.homeFooterText}>
-                A project by <Text style={styles.footerLink}>Javon Harper</Text>
+              <Text style={styles.homeFooterText}>A project by</Text>
+              <Text
+                style={styles.footerLink}
+                onPress={() => Linking.openURL('https://www.javonharper.com')}
+              >
+                Javon Harper
+              </Text>
+              <Text style={styles.homeFooterText}>and</Text>
+              <Text
+                style={styles.footerLink}
+                onPress={() =>
+                  Linking.openURL('https://www.tiffanyrobinson.me')
+                }
+              >
+                Tiffany Robinson
               </Text>
             </View>
           }
@@ -77,12 +90,16 @@ const footerStyles = {
     marginBottom: spacing.larger
   },
   homeFooterText: {
-    textAlign: 'center',
-    color: color.grayDarker
+    color: color.grayDarker,
+    marginBottom: spacing.smaller,
+    textAlign: 'center'
   },
   footerLink: {
+    color: color.grayDarkest,
+    fontSize: fontSize.large,
     fontWeight: '800',
-    color: color.grayDarkest
+    marginBottom: spacing.smaller,
+    textAlign: 'center'
   }
 };
 
