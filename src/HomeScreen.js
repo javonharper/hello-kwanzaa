@@ -5,6 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { spacing, fontSize, color } from './style';
 import DAYS from './days';
+import Tag from './components/Tag';
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -71,11 +72,27 @@ const PrincipleListItem = ({ name, theme, day, date }) => (
   </View>
 );
 
-const Tag = ({ children }) => (
-  <View style={styles.tag}>
-    <Text style={styles.tagText}>{children}</Text>
-  </View>
-);
+const footerStyles = {
+  homeFooter: {
+    marginBottom: spacing.larger
+  },
+  homeFooterText: {
+    textAlign: 'center',
+    color: color.grayDarker
+  },
+  footerLink: {
+    fontWeight: '800',
+    color: color.grayDarkest
+  }
+};
+
+const boxShadow = {
+  shadowColor: color.black,
+  shadowOffset: { width: 0, height: 1 },
+  shadowOpacity: 0.8,
+  shadowRadius: 2,
+  elevation: 5
+};
 
 const styles = EStyleSheet.create({
   // Header
@@ -102,13 +119,7 @@ const styles = EStyleSheet.create({
     borderRadius: 4,
     marginLeft: spacing.base,
     marginRight: spacing.base,
-
-    // box-shadow
-    shadowColor: color.black,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5
+    ...boxShadow
   },
   principleHeader: {
     flexDirection: 'row',
@@ -125,31 +136,7 @@ const styles = EStyleSheet.create({
     fontSize: fontSize.large,
     color: color.grayLighter
   },
-  // Tag
-  tag: {
-    backgroundColor: color.grayDarker,
-    padding: spacing.smaller,
-    marginRight: spacing.base,
-    color: color.white,
-    borderRadius: 6
-  },
-  tagText: {
-    color: color.white,
-    fontWeight: '700',
-    fontSize: fontSize.base
-  },
-  // Footer
-  homeFooter: {
-    marginBottom: spacing.larger
-  },
-  homeFooterText: {
-    textAlign: 'center',
-    color: color.grayDarker
-  },
-  footerLink: {
-    fontWeight: '800',
-    color: color.grayDarkest
-  }
+  ...footerStyles
 });
 
 export default HomeScreen;
