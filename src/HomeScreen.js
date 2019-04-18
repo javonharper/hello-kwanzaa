@@ -21,6 +21,11 @@ class HomeScreen extends Component {
             <View style={styles.homeScreenHeader}>
               <Text style={styles.screenTitle}>Nguzo Saba</Text>
               <Text style={styles.screenSubTitle}>7 principles for 7 days</Text>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.push('FAQ')}
+              >
+                <Icon name="info" size={30} color={color.grayDark} />
+              </TouchableOpacity>
             </View>
           }
           keyExtractor={item => item.name}
