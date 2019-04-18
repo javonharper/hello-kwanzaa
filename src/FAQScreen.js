@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Linking, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import {
+  Linking,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -8,29 +14,50 @@ import faqQuestions from './faq';
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Frequenly Asked Questions'
+    title: 'About Kwanzaa'
   };
 
   render() {
     return (
-      <View>
+      <ScrollView>
         {faqQuestions.map(({ question, answer }, i) => (
           <FAQItem key={i} question={question} answer={answer} />
         ))}
-      </View>
+      </ScrollView>
     );
   }
 }
 
 function FAQItem({ question, answer }) {
   return (
-    <View>
-      <Text>{question}</Text>
-      <Text>{answer}</Text>
+    <View style={styles.faqItemWrapper}>
+      <Text style={styles.faqItemQuestion}>{question}</Text>
+      <Text style={styles.faqItemAnswer}>{answer}</Text>
     </View>
   );
 }
 
-const styles = EStyleSheet.create({});
+const faqItemStyles = {
+  faqItemWrapper: {
+    padding: spacing.base,
+    backgroundColor: color.grayLightest,
+    borderBottomWidth: 1,
+    borderBottomColor: color.grayDark
+  },
+  faqItemQuestion: {
+    fontSize: fontSize.base,
+    fontWeight: '700',
+    color: color.black,
+    marginBottom: spacing.base
+  },
+  faqItemAnswer: {
+    fontSize: fontSize.base,
+    color: color.black
+  }
+};
+
+const styles = EStyleSheet.create({
+  ...faqItemStyles
+});
 
 export default HomeScreen;
