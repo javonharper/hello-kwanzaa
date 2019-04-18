@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Linking,
-  Text,
-  View,
-  ScrollView,
-  TouchableOpacity
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import { Text, View, ScrollView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { spacing, fontSize, color } from './style';
@@ -14,14 +7,14 @@ import faqQuestions from './faq';
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'About Kwanzaa'
+    title: 'About Kwanzaa',
   };
 
   render() {
     return (
       <ScrollView>
-        {faqQuestions.map(({ question, answer }, i) => (
-          <FAQItem key={i} question={question} answer={answer} />
+        {faqQuestions.map(({ question, answer }) => (
+          <FAQItem key={question} question={question} answer={answer} />
         ))}
       </ScrollView>
     );
@@ -42,22 +35,22 @@ const faqItemStyles = {
     padding: spacing.base,
     backgroundColor: color.grayLightest,
     borderBottomWidth: 1,
-    borderBottomColor: color.grayDark
+    borderBottomColor: color.grayDark,
   },
   faqItemQuestion: {
     fontSize: fontSize.base,
     fontWeight: '700',
     color: color.black,
-    marginBottom: spacing.base
+    marginBottom: spacing.base,
   },
   faqItemAnswer: {
     fontSize: fontSize.base,
-    color: color.black
-  }
+    color: color.black,
+  },
 };
 
 const styles = EStyleSheet.create({
-  ...faqItemStyles
+  ...faqItemStyles,
 });
 
 export default HomeScreen;

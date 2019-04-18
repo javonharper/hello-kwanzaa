@@ -7,25 +7,21 @@ import { color, spacing, fontSize } from './style';
 import Tag from './components/Tag';
 
 class DetailsScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: navigation.getParam('day').name
-    };
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.getParam('day').name,
+  });
 
   handlePlayPronounciation = () => {
-    const day = this.props.navigation.getParam('day');
-    this.props.navigation.push('PronunciationModal', { day });
+    const { navigation } = this.props;
+    const day = navigation.getParam('day');
+    navigation.push('PronunciationModal', { day });
   };
 
   render() {
+    const { navigation } = this.props;
     const {
-      day,
-      date,
-      name,
-      theme,
-      description
-    } = this.props.navigation.getParam('day');
+      day, date, name, theme, description,
+    } = navigation.getParam('day');
     return (
       <View style={{ flex: 1, backgroundColor: color.grayLighter }}>
         <View style={styles.headingWrapper}>
@@ -54,39 +50,39 @@ class DetailsScreen extends Component {
 const themeStyles = {
   themeWrapper: {
     backgroundColor: color.grayLighter,
-    padding: spacing.large
+    padding: spacing.large,
   },
   themeText: {
     color: color.grayDarkest,
-    fontSize: fontSize.larger
-  }
+    fontSize: fontSize.larger,
+  },
 };
 
 const styles = EStyleSheet.create({
   headingWrapper: {
     backgroundColor: color.black,
-    padding: spacing.large
+    padding: spacing.large,
   },
   principleHeader: {
     flexDirection: 'row',
-    marginBottom: spacing.larger
+    marginBottom: spacing.larger,
   },
   principleName: {
     fontSize: fontSize.largest,
     color: color.white,
     fontWeight: '700',
     marginRight: spacing.small,
-    marginBottom: spacing.smaller
+    marginBottom: spacing.smaller,
   },
   principleRow: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   principleTheme: {
     fontSize: fontSize.large,
-    color: color.grayLighter
+    color: color.grayLighter,
   },
-  ...themeStyles
+  ...themeStyles,
 });
 
 export default DetailsScreen;

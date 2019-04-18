@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Linking, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import {
+  Linking, Text, View, FlatList, TouchableOpacity,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -9,36 +11,33 @@ import Tag from './components/Tag';
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Hello Kwanzaa'
+    title: 'Hello Kwanzaa',
   };
 
   render() {
+    const { navigation } = this.props;
     return (
       <View>
         <FlatList
           data={DAYS}
-          ListHeaderComponent={
+          ListHeaderComponent={(
             <View style={styles.homeScreenHeader}>
               <Text style={styles.screenTitle}>Nguzo Saba</Text>
               <Text style={styles.screenSubTitle}>7 principles for 7 days</Text>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.push('FAQ')}
-              >
+              <TouchableOpacity onPress={() => navigation.push('FAQ')}>
                 <Icon name="info" size={30} color={color.grayDark} />
               </TouchableOpacity>
             </View>
-          }
+)}
           keyExtractor={item => item.name}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.push('Details', { day: item })
-              }
+              onPress={() => navigation.push('Details', { day: item })}
             >
               <PrincipleListItem {...item} />
             </TouchableOpacity>
           )}
-          ListFooterComponent={
+          ListFooterComponent={(
             <View style={styles.homeFooter}>
               <Text style={styles.homeFooterText}>A project by</Text>
               <Text
@@ -50,21 +49,22 @@ class HomeScreen extends Component {
               <Text style={styles.homeFooterText}>and</Text>
               <Text
                 style={styles.footerLink}
-                onPress={() =>
-                  Linking.openURL('https://www.tiffanyrobinson.me')
+                onPress={() => Linking.openURL('https://www.tiffanyrobinson.me')
                 }
               >
                 Tiffany Robinson
               </Text>
             </View>
-          }
+)}
         />
       </View>
     );
   }
 }
 
-const PrincipleListItem = ({ name, theme, day, date }) => (
+const PrincipleListItem = ({
+  name, theme, day, date,
+}) => (
   <View style={styles.principleListItem}>
     <View>
       <View style={styles.principleHeader}>
@@ -75,7 +75,7 @@ const PrincipleListItem = ({ name, theme, day, date }) => (
         style={{
           flexDirection: 'row',
           flex: 1,
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
         }}
       >
         <View>
@@ -92,20 +92,20 @@ const PrincipleListItem = ({ name, theme, day, date }) => (
 
 const footerStyles = {
   homeFooter: {
-    marginBottom: spacing.larger
+    marginBottom: spacing.larger,
   },
   homeFooterText: {
     color: color.grayDarker,
     marginBottom: spacing.smaller,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   footerLink: {
     color: color.grayDarkest,
     fontSize: fontSize.large,
     fontWeight: '800',
     marginBottom: spacing.smaller,
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 };
 
 const boxShadow = {
@@ -113,25 +113,25 @@ const boxShadow = {
   shadowOffset: { width: 0, height: 1 },
   shadowOpacity: 0.8,
   shadowRadius: 2,
-  elevation: 5
+  elevation: 5,
 };
 
 const styles = EStyleSheet.create({
   // Header
   homeScreenHeader: {
-    padding: spacing.base
+    padding: spacing.base,
   },
   screenTitle: {
     fontSize: fontSize.largest,
     color: color.black,
     fontWeight: '700',
-    marginBottom: spacing.smallest
+    marginBottom: spacing.smallest,
   },
   screenSubTitle: {
     fontSize: fontSize.larger,
     color: color.grayDarker,
     fontWeight: '400',
-    marginBottom: spacing.smaller
+    marginBottom: spacing.smaller,
   },
   // PrincipleListItem
   principleListItem: {
@@ -141,24 +141,24 @@ const styles = EStyleSheet.create({
     borderRadius: 4,
     marginLeft: spacing.base,
     marginRight: spacing.base,
-    ...boxShadow
+    ...boxShadow,
   },
   principleHeader: {
     flexDirection: 'row',
     flex: 1,
-    marginBottom: spacing.base
+    marginBottom: spacing.base,
   },
   principleName: {
     fontSize: fontSize.largest,
     color: color.white,
     fontWeight: '700',
-    marginBottom: spacing.smaller
+    marginBottom: spacing.smaller,
   },
   principleTheme: {
     fontSize: fontSize.large,
-    color: color.grayLighter
+    color: color.grayLighter,
   },
-  ...footerStyles
+  ...footerStyles,
 });
 
 export default HomeScreen;

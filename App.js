@@ -13,18 +13,18 @@ EStyleSheet.build({});
 const MainStack = createStackNavigator({
   Home: { screen: HomeScreen },
   Details: { screen: DetailsScreen },
-  FAQ: { screen: FAQScreen }
+  FAQ: { screen: FAQScreen },
 });
 
 const RootStack = createStackNavigator(
   {
     Main: { screen: MainStack },
-    PronunciationModal: { screen: PronunciationModal }
+    PronunciationModal: { screen: PronunciationModal },
   },
   {
     mode: 'modal',
-    headerMode: 'none'
-  }
+    headerMode: 'none',
+  },
 );
 
 const AppNavigator = createAppContainer(RootStack);

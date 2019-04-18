@@ -7,7 +7,7 @@ export default [
     name: 'Umoja',
     pronunciation: require('../assets/Pronunciation/Umoja.m4a'),
     phonetic: 'oo-MOH-ja',
-    theme: 'Unity'
+    theme: 'Unity',
   },
   {
     date: 'December 27th',
@@ -17,7 +17,7 @@ export default [
     name: 'Kujichagulia',
     pronunciation: require('../assets/Pronunciation/Kujichagulia.m4a'),
     phonetic: 'koo-jee-cha-goo-LEE-yah',
-    theme: 'Self-Determination'
+    theme: 'Self-Determination',
   },
   {
     date: 'December 28th',
@@ -27,7 +27,7 @@ export default [
     name: 'Ujima',
     phonetic: 'oo-JEE-mah',
     pronunciation: require('../assets/Pronunciation/Ujima.m4a'),
-    theme: 'Collective Work and Responsibility'
+    theme: 'Collective Work and Responsibility',
   },
   {
     date: 'December 29th',
@@ -37,7 +37,7 @@ export default [
     name: 'Ujamaa',
     phonetic: 'oo-JAH-ma',
     pronunciation: require('../assets/Pronunciation/Ujamaa.m4a'),
-    theme: 'Cooperative Economics'
+    theme: 'Cooperative Economics',
   },
   {
     date: 'December 30th',
@@ -48,7 +48,7 @@ export default [
     phonetic: 'nee-AH',
 
     pronunciation: require('../assets/Pronunciation/Nia.m4a'),
-    theme: 'Purpose'
+    theme: 'Purpose',
   },
   {
     date: 'December 31st',
@@ -58,7 +58,7 @@ export default [
     name: 'Kuumba',
     pronunciation: require('../assets/Pronunciation/Kuumba.m4a'),
     phonetic: 'koo-OOM-bah',
-    theme: 'Creativity'
+    theme: 'Creativity',
   },
   {
     date: 'January 1st',
@@ -68,6 +68,6 @@ export default [
     name: 'Imani',
     phonetic: 'ee-MAH-nee',
     pronunciation: require('../assets/Pronunciation/Imani.m4a'),
-    theme: 'Faith'
-  }
+    theme: 'Faith',
+  },
 ];
