@@ -13,22 +13,32 @@ class HomeScreen extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
     return (
       <View>
         <FlatList
           data={DAYS}
           ListHeaderComponent={
             <View style={styles.homeScreenHeader}>
-              <Text style={styles.screenTitle}>Nguzo Saba</Text>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <Text style={styles.screenTitle}>Nguzo Saba</Text>
+                <TouchableOpacity onPress={() => navigation.push('FAQ')}>
+                  <Icon name="info" size={30} color={color.grayDarker} />
+                </TouchableOpacity>
+              </View>
               <Text style={styles.screenSubTitle}>7 principles for 7 days</Text>
             </View>
           }
           keyExtractor={item => item.name}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.push('Details', { day: item })
-              }
+              onPress={() => navigation.push('Details', { day: item })}
             >
               <PrincipleListItem {...item} />
             </TouchableOpacity>

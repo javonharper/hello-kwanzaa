@@ -15,13 +15,13 @@ const styles = EStyleSheet.create({
     padding: spacing.smaller,
     marginRight: spacing.base,
     color: color.white,
-    borderRadius: 6
+    borderRadius: 6,
   },
   tagText: {
     color: color.white,
     fontWeight: '700',
-    fontSize: fontSize.base
-  }
+    fontSize: fontSize.base,
+  },
 });
 
 export default Tag;

@@ -5,7 +5,7 @@ export const spacing = {
   base: '1rem',
   large: '2rem',
   larger: '2.5rem',
-  largest: '3rem'
+  largest: '3rem',
 };
 
 export const fontSize = {
@@ -15,7 +15,7 @@ export const fontSize = {
   base: '1rem',
   large: '1.125rem',
   larger: '1.5rem',
-  largest: '2rem'
+  largest: '2rem',
 };
 
 export const color = {
@@ -27,5 +27,5 @@ export const color = {
   grayLight: '#CDD4DA',
   grayLighter: '#D6DDE4',
   grayLightest: '#E2E7EB',
-  white: '#F8F9FA'
+  white: '#F8F9FA',
 };

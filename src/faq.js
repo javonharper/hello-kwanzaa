@@ -10,7 +10,7 @@ export default [
 
 These are the recommended items needed. IF you do not have the specific item, alternatives can be used.
 i.e., if no kinara, use candle holders; if you are unable to obtain the specific colors for each candle, use any candle as long you have 7 total candles to represent each day
-`
+`,
   },
   {
     question: 'How do you celebrate Kwanzaa?',
@@ -20,11 +20,11 @@ i.e., if no kinara, use candle holders; if you are unable to obtain the specific
 - drink from the unity cup
 - any leftover liquid is poured over a live crop
 - discuss the principle of the day
-- recommendation: fast from sun up to sun down to honor the ancestors'`
+- recommendation: fast from sun up to sun down to honor the ancestors'`,
   },
   {
     question: 'How do you light the kinara?',
-    answer: 'this is the answer'
+    answer: 'this is the answer',
   },
   {
     question: 'What is Kwanzaa?',
@@ -34,10 +34,10 @@ i.e., if no kinara, use candle holders; if you are unable to obtain the specific
 - who celebrates it: 
 
 - celebrated around the world
-- runs from dec 26th to jan 1`
+- runs from dec 26th to jan 1`,
   },
   {
     question: 'Does this replace Christmas?',
-    answer: `No. It is a cultural holiday and can be celebrated in addition to Christmas. The first day of kwanzaa starts on Dec. 26, the day after Christmas and ends on January 1.`
+    answer: 'No. It is a cultural holiday and can be celebrated in addition to Christmas. The first day of kwanzaa starts on Dec. 26, the day after Christmas and ends on January 1.',
   },
 ];

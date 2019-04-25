@@ -1,8 +1,10 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "lint": "eslint App.js ./src",
     "start": "expo start",
     "android": "expo start --android",
+    "publish": "expo publish",
     "ios": "expo start --ios",
     "eject": "expo eject"
   },
@@ -15,7 +17,13 @@
     "react-navigation": "^3.3.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-eslint": "^10.0.1",
+    "babel-preset-expo": "^5.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
   },
   "private": true
 }
