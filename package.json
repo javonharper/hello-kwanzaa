@@ -4,6 +4,7 @@
     "lint": "eslint App.js ./src",
     "start": "expo start",
     "android": "expo start --android",
+    "publish": "expo publish",
     "ios": "expo start --ios",
     "eject": "expo eject"
   },
