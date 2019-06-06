@@ -67,7 +67,9 @@ const themeStyles = {
   },
   themeText: {
     color: color.grayDarkest,
-    fontSize: fontSize.larger
+    fontSize: fontSize.large,
+    fontWeight: '600',
+    lineHeight: '1.5rem'
   }
 };
 
@@ -79,14 +81,15 @@ const discussionQuestionsStyles = {
     fontWeight: '700'
   },
   discussionQuestionsHeader: {
-    color: color.grayDarkest,
+    color: color.black,
     fontSize: fontSize.base,
     marginBottom: spacing.base,
     fontWeight: '700'
   },
   discussionQuestionsContent: {
     color: color.grayDarkest,
-    fontSize: fontSize.large
+    fontSize: fontSize.large,
+    lineHeight: '1.5rem'
   }
 };
 
