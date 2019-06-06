@@ -7,12 +7,12 @@ import faqQuestions from './faq';
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'About Kwanzaa',
+    title: 'About Kwanzaa'
   };
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: color.grayLightest }}>
         {faqQuestions.map(({ question, answer }) => (
           <FAQItem key={question} question={question} answer={answer} />
         ))}
@@ -35,22 +35,23 @@ const faqItemStyles = {
     padding: spacing.base,
     backgroundColor: color.grayLightest,
     borderBottomWidth: 1,
-    borderBottomColor: color.grayDark,
+    borderBottomColor: color.grayLight
   },
   faqItemQuestion: {
-    fontSize: fontSize.base,
-    fontWeight: '700',
+    fontSize: fontSize.larger,
+    fontWeight: '400',
     color: color.black,
-    marginBottom: spacing.base,
+    marginBottom: spacing.base
   },
   faqItemAnswer: {
-    fontSize: fontSize.base,
-    color: color.black,
-  },
+    lineHeight: '1.5rem',
+    fontSize: fontSize.large,
+    color: color.black
+  }
 };
 
 const styles = EStyleSheet.create({
-  ...faqItemStyles,
+  ...faqItemStyles
 });
 
 export default HomeScreen;
