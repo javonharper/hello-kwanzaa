@@ -32,7 +32,7 @@ class HomeScreen extends Component {
                   <Icon name="info" size={30} color={color.grayDarker} />
                 </TouchableOpacity>
               </View>
-              <Text style={styles.screenSubTitle}>7 principles for 7 days</Text>
+              <Text style={styles.screenSubTitle}>(The Seven Principles)</Text>
             </View>
           }
           keyExtractor={item => item.name}
