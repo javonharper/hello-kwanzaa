@@ -33,13 +33,13 @@ function FAQItem({ question, answer }) {
 const faqItemStyles = {
   faqItemWrapper: {
     padding: spacing.base,
-    backgroundColor: color.grayLightest,
+    backgroundColor: color.white,
     borderBottomWidth: 1,
     borderBottomColor: color.grayLight
   },
   faqItemQuestion: {
-    fontSize: fontSize.larger,
-    fontWeight: '400',
+    fontSize: fontSize.large,
+    fontWeight: '700',
     color: color.black,
     marginBottom: spacing.base
   },

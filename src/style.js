@@ -44,5 +44,13 @@ export const color = {
   green: '#5ABD79',
   greenLight: '#86D5A3',
   greenLighter: '#B3EBC4',
-  greenLightest: '#E6FBED'
+  greenLightest: '#E6FBED',
+
+  yellowDarkest: '#5A481C',
+  yellowDarker: '#896D2D',
+  yellowDark: '#C7A54F',
+  yellow: '#F1CA73',
+  yellowLight: '#F8E2A7',
+  yellowLighter: '#FCF3DA',
+  yellowLightest: '#FFFCF5'
 };

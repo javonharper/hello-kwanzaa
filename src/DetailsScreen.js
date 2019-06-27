@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/Feather';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { color, spacing, fontSize } from './style';
-import Tag from './components/Tag';
 
 class DetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -28,7 +27,7 @@ class DetailsScreen extends Component {
       discussionQuestion
     } = navigation.getParam('day');
     return (
-      <ScrollView style={{ flex: 1, backgroundColor: color.grayLighter }}>
+      <ScrollView style={{ flex: 1 }}>
         <View style={styles.headingWrapper}>
           <View style={styles.principleHeader}>
             <Tag>{`Day ${day}`}</Tag>
@@ -37,8 +36,11 @@ class DetailsScreen extends Component {
           <View>
             <View style={styles.principleRow}>
               <Text style={styles.principleName}>{name}</Text>
-              <TouchableOpacity onPress={this.handlePlayPronounciation}>
-                <Icon name="volume-2" size={30} color={color.white} />
+              <TouchableOpacity
+                style={styles.pronounciation}
+                onPress={this.handlePlayPronounciation}
+              >
+                <Icon name="volume-2" size={30} color={color.yellow} />
               </TouchableOpacity>
             </View>
             <Text style={styles.principleTheme}>{theme}</Text>
@@ -49,7 +51,7 @@ class DetailsScreen extends Component {
         </View>
         <View style={styles.discussionQuestionsWrapper}>
           <Text style={styles.discussionQuestionsHeader}>
-            DISCUSSION QUESTIONS
+            Discussion questions
           </Text>
           <Text style={styles.discussionQuestionsContent}>
             {discussionQuestion}
@@ -60,13 +62,24 @@ class DetailsScreen extends Component {
   }
 }
 
+const Tag = ({ children }) => (
+  <View style={styles.tag}>
+    <Text style={styles.tagText}>{children}</Text>
+  </View>
+);
+
 const themeStyles = {
   themeWrapper: {
-    backgroundColor: color.grayLighter,
-    padding: spacing.large
+    backgroundColor: color.white,
+    padding: spacing.large,
+    paddingTop: spacing.base,
+    paddingBottom: spacing.base,
+    borderBottomWidth: 1,
+    borderColor: color.grayLight,
+    borderStyle: 'solid'
   },
   themeText: {
-    color: color.grayDarkest,
+    color: color.black,
     fontSize: fontSize.large,
     fontWeight: '600',
     lineHeight: '1.5rem'
@@ -75,14 +88,16 @@ const themeStyles = {
 
 const discussionQuestionsStyles = {
   discussionQuestionsWrapper: {
-    backgroundColor: color.grayLighter,
+    backgroundColor: color.grayLightest,
     color: color.grayDarkest,
     padding: spacing.large,
+    paddingTop: spacing.base,
+    paddingBottom: spacing.base,
     fontWeight: '700'
   },
   discussionQuestionsHeader: {
     color: color.black,
-    fontSize: fontSize.base,
+    fontSize: fontSize.large,
     marginBottom: spacing.base,
     fontWeight: '700'
   },
@@ -93,9 +108,25 @@ const discussionQuestionsStyles = {
   }
 };
 
+const tagStyles = {
+  tag: {
+    backgroundColor: color.redLight,
+    padding: spacing.smaller,
+    marginRight: spacing.large,
+    color: color.white,
+    borderRadius: 6
+  },
+  tagText: {
+    color: color.white,
+    fontWeight: '700',
+    fontSize: fontSize.base
+  }
+};
+
 const styles = EStyleSheet.create({
+  pronounciation: { marginTop: spacing.smallest },
   headingWrapper: {
-    backgroundColor: color.black,
+    backgroundColor: color.red,
     padding: spacing.large
   },
   principleHeader: {
@@ -106,19 +137,20 @@ const styles = EStyleSheet.create({
     fontSize: fontSize.largest,
     color: color.white,
     fontWeight: '700',
-    marginRight: spacing.small,
+    marginRight: spacing.base,
     marginBottom: spacing.smaller
   },
   principleRow: {
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: 'row'
   },
   principleTheme: {
     fontSize: fontSize.large,
-    color: color.grayLighter
+    color: color.white,
+    opacity: 0.9
   },
   ...themeStyles,
-  ...discussionQuestionsStyles
+  ...discussionQuestionsStyles,
+  ...tagStyles
 });
 
 export default DetailsScreen;

@@ -5,7 +5,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { spacing, fontSize, color } from './style';
 import DAYS from './days';
-// import Tag from './components/Tag';
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -116,13 +115,13 @@ const footerStyles = {
   }
 };
 
-// const boxShadow = {
-//   shadowColor: color.black,
-//   shadowOffset: { width: 0, height: 1 },
-//   shadowOpacity: 0.8,
-//   shadowRadius: 2,
-//   elevation: 5
-// };
+const boxShadow = {
+  shadowColor: color.grayDark ,
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.4,
+  shadowRadius: 3,
+  elevation: 5
+};
 
 const styles = EStyleSheet.create({
   // Header
@@ -150,10 +149,13 @@ const styles = EStyleSheet.create({
     padding: spacing.base,
     marginBottom: spacing.larger,
     borderRadius: 4,
+    borderBottomLeftRadius: 0,
+    borderTopLeftRadius: 0,
     marginLeft: spacing.base,
     marginRight: spacing.base,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    ...boxShadow
   },
   principleHeader: {
     flexDirection: 'row',
@@ -169,7 +171,7 @@ const styles = EStyleSheet.create({
   principleTheme: {
     fontSize: fontSize.large,
     color: color.red,
-    opacity: 0.9
+    opacity: 0.8
   },
   ...footerStyles
 });
