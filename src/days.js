@@ -8,6 +8,7 @@ export default [
     pronunciation: require('../assets/Pronunciation/Umoja.m4a'),
     phonetic: 'oo-MOH-ja',
     theme: 'Unity',
+    color: 'black',
     discussionQuestion: `How have you maintained unity in your family, community, nation or culture in the past year?
 
 How do you strive and plan to unify in your family, community, nation or culture?
@@ -23,6 +24,7 @@ What events have allowed us to unify over the past year?`
     pronunciation: require('../assets/Pronunciation/Kujichagulia.m4a'),
     phonetic: 'koo-jee-cha-goo-LEE-yah',
     theme: 'Self-Determination',
+    color: 'green',
     discussionQuestion: `How do you define yourself? What motivates you?
 
 How does it affect your individual goals of self-determination?
@@ -37,6 +39,7 @@ Describe the importance of understanding your heritage and culture.`
     name: 'Ujima',
     phonetic: 'oo-JEE-mah',
     pronunciation: require('../assets/Pronunciation/Ujima.m4a'),
+    color: 'red',
     theme: 'Collective Work and Responsibility',
     discussionQuestion: `How do you plan to build and/or maintain the community?
 
@@ -53,6 +56,7 @@ What are ways we can work with others to maintain our community and or help othe
     phonetic: 'oo-JAH-ma',
     pronunciation: require('../assets/Pronunciation/Ujamaa.m4a'),
     theme: 'Cooperative Economics',
+    color: 'green',
     discussionQuestion: `How might we patronize the businesses or shops within our community?
 
 Identify the business needs within your community.
@@ -68,6 +72,7 @@ How might we inform people about these businesses if they currently exist? If no
     phonetic: 'nee-AH',
     pronunciation: require('../assets/Pronunciation/Nia.m4a'),
     theme: 'Purpose',
+    color: 'red',
     discussionQuestion: `Do you think we owe it to ourselves, community, culture or ancestors to contribute to building and developing of our community as a whole? Why?
 
 How can we enforce that people contribute to the maintenance and development of their community or culture? Can you identify your purpose?`
@@ -80,6 +85,7 @@ How can we enforce that people contribute to the maintenance and development of 
     name: 'Kuumba',
     pronunciation: require('../assets/Pronunciation/Kuumba.m4a'),
     phonetic: 'koo-OOM-bah',
+    color: 'green',
     theme: 'Creativity',
     discussionQuestion: `What are creative ways to build the community in which you live?
 How will you contribute to the beautification and building of your community this year?
@@ -94,6 +100,7 @@ How were you creative within your community in the past year?`
     name: 'Imani',
     phonetic: 'ee-MAH-nee',
     pronunciation: require('../assets/Pronunciation/Imani.m4a'),
+    color: 'red',
     theme: 'Faith',
     discussionQuestion: `What causes us to believe in ourselves and others?
 What is the importance in believing in ourselves and community to overcome past struggles?

@@ -5,7 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { spacing, fontSize, color } from './style';
 import DAYS from './days';
-import Tag from './components/Tag';
+// import Tag from './components/Tag';
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -19,20 +19,29 @@ class HomeScreen extends Component {
         <FlatList
           data={DAYS}
           ListHeaderComponent={
-            <View style={styles.homeScreenHeader}>
-              <View
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Text style={styles.screenTitle}>Nguzo Saba</Text>
-                <TouchableOpacity onPress={() => navigation.push('FAQ')}>
-                  <Icon name="info" size={30} color={color.grayDarker} />
-                </TouchableOpacity>
+            <View>
+              <View style={{ position: 'absolute', left: 0, right: 0 }}>
+                <View style={{ backgroundColor: color.red, height: 150 }} />
+                <View style={{ backgroundColor: color.black, height: 30 }} />
+                <View style={{ backgroundColor: color.green, height: 30 }} />
               </View>
-              <Text style={styles.screenSubTitle}>(The Seven Principles)</Text>
+              <View style={styles.homeScreenHeader}>
+                <View
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <Text style={styles.screenTitle}>Nguzo Saba</Text>
+                  <TouchableOpacity onPress={() => navigation.push('FAQ')}>
+                    <Icon name="info" size={30} color={color.redLightest} />
+                  </TouchableOpacity>
+                </View>
+                <Text style={styles.screenSubTitle}>
+                  The Seven Principles of Kwanzaa
+                </Text>
+              </View>
             </View>
           }
           keyExtractor={item => item.name}
@@ -73,24 +82,18 @@ const PrincipleListItem = ({ name, theme, day, date }) => (
   <View style={styles.principleListItem}>
     <View>
       <View style={styles.principleHeader}>
-        <Tag>{`Day ${day}`}</Tag>
-        <Tag>{date}</Tag>
+        <Text
+          style={{ color: color.red, fontWeight: '700', marginRight: 15 }}
+        >{`Day ${day}`}</Text>
+        <Text style={{ color: color.red, fontWeight: '700' }}>{date}</Text>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          flex: 1,
-          justifyContent: 'space-between'
-        }}
-      >
-        <View>
-          <Text style={styles.principleName}>{name}</Text>
-          <Text style={styles.principleTheme}>{theme}</Text>
-        </View>
-        <View style={{ justifyContent: 'center' }}>
-          <Icon name="chevron-right" size={30} color={color.grayDark} />
-        </View>
+      <View>
+        <Text style={styles.principleName}>{name}</Text>
+        <Text style={styles.principleTheme}>{theme}</Text>
       </View>
+    </View>
+    <View style={{ justifyContent: 'center' }}>
+      <Icon name="chevron-right" size={30} color={color.red} />
     </View>
   </View>
 );
@@ -113,13 +116,13 @@ const footerStyles = {
   }
 };
 
-const boxShadow = {
-  shadowColor: color.black,
-  shadowOffset: { width: 0, height: 1 },
-  shadowOpacity: 0.8,
-  shadowRadius: 2,
-  elevation: 5
-};
+// const boxShadow = {
+//   shadowColor: color.black,
+//   shadowOffset: { width: 0, height: 1 },
+//   shadowOpacity: 0.8,
+//   shadowRadius: 2,
+//   elevation: 5
+// };
 
 const styles = EStyleSheet.create({
   // Header
@@ -128,40 +131,45 @@ const styles = EStyleSheet.create({
   },
   screenTitle: {
     fontSize: fontSize.largest,
-    color: color.black,
+    color: color.white,
     fontWeight: '700',
     marginBottom: spacing.smallest
   },
   screenSubTitle: {
-    fontSize: fontSize.larger,
-    color: color.grayDarker,
+    fontSize: fontSize.large,
+    color: color.redLightest,
     fontWeight: '400',
     marginBottom: spacing.smaller
   },
   // PrincipleListItem
   principleListItem: {
-    backgroundColor: color.black,
+    borderLeftWidth: 5,
+    borderStyle: 'solid',
+    borderColor: color.red,
+    backgroundColor: color.redLightest,
     padding: spacing.base,
     marginBottom: spacing.larger,
     borderRadius: 4,
     marginLeft: spacing.base,
     marginRight: spacing.base,
-    ...boxShadow
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   principleHeader: {
     flexDirection: 'row',
     flex: 1,
-    marginBottom: spacing.base
+    marginBottom: spacing.large
   },
   principleName: {
     fontSize: fontSize.largest,
-    color: color.white,
+    color: color.red,
     fontWeight: '700',
     marginBottom: spacing.smaller
   },
   principleTheme: {
     fontSize: fontSize.large,
-    color: color.grayLighter
+    color: color.red,
+    opacity: 0.9
   },
   ...footerStyles
 });
