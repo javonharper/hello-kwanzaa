@@ -7,6 +7,10 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { spacing, fontSize, color } from './style';
 
 class PronunciationModal extends Component {
+  state = {
+    isPlaying: false
+  };
+
   async componentDidMount() {
     Audio.setIsEnabledAsync(true);
     Audio.setAudioModeAsync({
@@ -15,15 +19,33 @@ class PronunciationModal extends Component {
       interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
       interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
       shouldDuckAndroid: true,
-      playThroughEarpieceAndroid: true,
+      playThroughEarpieceAndroid: true
     });
 
     const { navigation } = this.props;
     const day = navigation.getParam('day');
     this.soundObject = new Audio.Sound();
+    this.soundObject.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate);
+
     await this.soundObject.loadAsync(day.pronunciation);
     this.playAudio();
   }
+
+  onPlaybackStatusUpdate = playbackStatus => {
+    if (playbackStatus.isPlaying) {
+      this.setState({ isPlaying: true });
+    } else {
+      this.setState({ isPlaying: false });
+    }
+  };
+
+  stopAudio = async () => {
+    try {
+      await this.soundObject.stopAsync();
+    } catch (error) {
+      // Worth using sentry?
+    }
+  };
 
   playAudio = async () => {
     try {
@@ -34,6 +56,11 @@ class PronunciationModal extends Component {
     }
   };
 
+  closeScreen = () => {
+    this.stopAudio();
+    this.props.navigation.goBack();
+  };
+
   render() {
     const { navigation } = this.props;
     return (
@@ -42,7 +69,7 @@ class PronunciationModal extends Component {
           style={{
             alignItems: 'center',
             justifyContent: 'center',
-            flex: 1,
+            flex: 1
           }}
         >
           <View>
@@ -61,13 +88,17 @@ class PronunciationModal extends Component {
             </Text>
           </View>
           <TouchableOpacity onPress={this.playAudio}>
-            <Icon name="play" size={30} color={color.black} />
+            {this.state.isPlaying ? (
+              <Icon name="pause" size={30} color={color.red} />
+            ) : (
+              <Icon name="play" size={30} color={color.red} />
+            )}
           </TouchableOpacity>
         </View>
         <View style={{ justifySelf: 'flex-end' }}>
           <TouchableOpacity
             style={styles.closeButtonContainer}
-            onPress={() => navigation.goBack()}
+            onPress={this.closeScreen}
           >
             <Text style={styles.closeButtonText}>Close</Text>
           </TouchableOpacity>
@@ -82,40 +113,40 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: spacing.larger,
+    padding: spacing.larger
   },
   themeText: {
     color: color.gray,
     fontSize: fontSize.base,
     fontWeight: '600',
-    marginBottom: spacing.largest,
+    marginBottom: spacing.largest
   },
   dayText: {
     fontSize: fontSize.largest,
     fontWeight: '700',
     color: color.black,
-    marginBottom: spacing.larger,
+    marginBottom: spacing.larger
   },
   phoneticText: {
     fontSize: fontSize.large,
     fontWeight: '500',
     color: color.grayDarkest,
-    marginBottom: spacing.larger,
+    marginBottom: spacing.larger
   },
   closeButtonContainer: {
-    backgroundColor: color.grayDarkest,
+    backgroundColor: color.red,
     color: color.white,
     padding: spacing.base,
     paddingLeft: spacing.larger,
     paddingRight: spacing.larger,
 
-    borderRadius: 10,
+    borderRadius: 10
   },
   closeButtonText: {
     color: color.white,
     fontSize: fontSize.large,
-    fontWeight: '700',
-  },
+    fontWeight: '700'
+  }
 });
 
 export default PronunciationModal;
