@@ -77,22 +77,32 @@ class HomeScreen extends Component {
   }
 }
 
-const PrincipleListItem = ({ name, theme, day, date }) => (
-  <View style={styles.principleListItem}>
+const PrincipleListItem = ({ name, theme, day, date, colors }) => (
+  <View
+    style={{
+      borderLeftColor: colors.base,
+      backgroundColor: colors.lightest,
+      ...styles.principleListItem
+    }}
+  >
     <View>
       <View style={styles.principleHeader}>
         <Text
-          style={{ color: color.red, fontWeight: '700', marginRight: 15 }}
+          style={{ color: colors.base, fontWeight: '700', marginRight: 15 }}
         >{`Day ${day}`}</Text>
-        <Text style={{ color: color.red, fontWeight: '700' }}>{date}</Text>
+        <Text style={{ color: colors.base, fontWeight: '700' }}>{date}</Text>
       </View>
       <View>
-        <Text style={styles.principleName}>{name}</Text>
-        <Text style={styles.principleTheme}>{theme}</Text>
+        <Text style={{ color: colors.base, ...styles.principleName }}>
+          {name}
+        </Text>
+        <Text style={{ color: colors.base, ...styles.principleTheme }}>
+          {theme}
+        </Text>
       </View>
     </View>
     <View style={{ justifyContent: 'center' }}>
-      <Icon name="chevron-right" size={30} color={color.red} />
+      <Icon name="chevron-right" size={30} color={colors.base} />
     </View>
   </View>
 );
@@ -116,7 +126,7 @@ const footerStyles = {
 };
 
 const boxShadow = {
-  shadowColor: color.grayDark ,
+  shadowColor: color.grayDarker,
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.4,
   shadowRadius: 3,
@@ -144,8 +154,6 @@ const styles = EStyleSheet.create({
   principleListItem: {
     borderLeftWidth: 5,
     borderStyle: 'solid',
-    borderColor: color.red,
-    backgroundColor: color.redLightest,
     padding: spacing.base,
     marginBottom: spacing.larger,
     borderRadius: 4,
@@ -164,13 +172,11 @@ const styles = EStyleSheet.create({
   },
   principleName: {
     fontSize: fontSize.largest,
-    color: color.red,
     fontWeight: '700',
     marginBottom: spacing.smaller
   },
   principleTheme: {
     fontSize: fontSize.large,
-    color: color.red,
     opacity: 0.8
   },
   ...footerStyles

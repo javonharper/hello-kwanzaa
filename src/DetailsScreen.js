@@ -24,14 +24,17 @@ class DetailsScreen extends Component {
       name,
       theme,
       description,
-      discussionQuestion
+      discussionQuestion,
+      colors
     } = navigation.getParam('day');
     return (
       <ScrollView style={{ flex: 1 }}>
-        <View style={styles.headingWrapper}>
+        <View
+          style={{ backgroundColor: colors.base, ...styles.headingWrapper }}
+        >
           <View style={styles.principleHeader}>
-            <Tag>{`Day ${day}`}</Tag>
-            <Tag>{date}</Tag>
+            <Tag colors={colors}>{`Day ${day}`}</Tag>
+            <Tag colors={colors}>{date}</Tag>
           </View>
           <View>
             <View style={styles.principleRow}>
@@ -62,8 +65,8 @@ class DetailsScreen extends Component {
   }
 }
 
-const Tag = ({ children }) => (
-  <View style={styles.tag}>
+const Tag = ({ children, colors }) => (
+  <View style={{ backgroundColor: colors.light, ...styles.tag }}>
     <Text style={styles.tagText}>{children}</Text>
   </View>
 );
@@ -110,7 +113,6 @@ const discussionQuestionsStyles = {
 
 const tagStyles = {
   tag: {
-    backgroundColor: color.redLight,
     padding: spacing.smaller,
     marginRight: spacing.large,
     color: color.white,
@@ -126,7 +128,6 @@ const tagStyles = {
 const styles = EStyleSheet.create({
   pronounciation: { marginTop: spacing.smallest },
   headingWrapper: {
-    backgroundColor: color.red,
     padding: spacing.large
   },
   principleHeader: {
